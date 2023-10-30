@@ -23,3 +23,5 @@ const configService = new ConfigService()
 	providers: [AuthService, PasswordService, CookieService],
 })
 export class AuthModule {}
+
+// 1:20:00
