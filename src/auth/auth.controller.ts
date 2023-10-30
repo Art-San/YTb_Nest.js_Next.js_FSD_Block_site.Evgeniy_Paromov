@@ -4,17 +4,20 @@ import {
 	Get,
 	HttpCode,
 	HttpStatus,
-	Post
+	Post,
 } from '@nestjs/common'
 import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger'
+import { AuthService } from './auth.service'
 import { GetSessionInfoDto, SignInBodyDto, SignUpBodyDto } from './dto/auth.dto'
 
 @Controller('auth')
 export class AuthController {
+	constructor(private authService: AuthService) {} // 1:05:03
+
 	@Post('sign-up')
 	@ApiCreatedResponse()
 	signUp(@Body() body: SignUpBodyDto) {
-		return null
+		return this.authService.signUp(body.email, body.password)
 	}
 
 	@Post('sign-in')
@@ -31,7 +34,7 @@ export class AuthController {
 
 	@Get('session')
 	@ApiOkResponse({
-		type: GetSessionInfoDto
+		type: GetSessionInfoDto,
 	})
 	getSessionInfo() {
 		return null
