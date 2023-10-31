@@ -23,7 +23,7 @@ async function bootstrap() {
 	SwaggerModule.setup('api', app, document)
 
 	app.use(cookieParser())
-	app.useGlobalPipes(new ValidationPipe()) // глобальный ValidationPipe
+	app.useGlobalPipes(new ValidationPipe()) // глобальный ValidationPipe не надо в контроллерах так писать @UsePipes(new ValidationPipe())
 	await app.listen(3000)
 }
 bootstrap()
