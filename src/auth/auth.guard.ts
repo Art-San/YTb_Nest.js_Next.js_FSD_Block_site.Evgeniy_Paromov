@@ -31,6 +31,7 @@ export class AuthGuard implements CanActivate {
 			//const sessionInfo = this.jwtService.verifyAsync(token, { secret: process.env.JWT_SECRET })
 
 			req['session'] = sessionInfo //в req в поле 'session' записываем информацию о текущей сессии
+			// получим в session-info.decorator.ts данные из session
 		} catch {
 			throw new UnauthorizedException({ message: 'ошибка AuthGuard' })
 		}
