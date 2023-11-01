@@ -20,13 +20,11 @@ export class AppController {
 
 	@Get()
 	@ApiOkResponse({
-		type: HelloWorldDto
+		type: HelloWorldDto,
 	})
 	async getHello(): Promise<HelloWorldDto> {
 		const user = await this.dbService.user.findMany()
-		console.log('user', user)
+
 		return { message: this.appService.getHello() }
 	}
 }
-
-// 26:2
