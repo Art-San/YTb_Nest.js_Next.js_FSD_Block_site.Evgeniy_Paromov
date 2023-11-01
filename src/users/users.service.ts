@@ -13,13 +13,6 @@ export class UsersService {
 		return this.db.user.findFirst({ where: { email } })
 	}
 
-	// async create(email: string, hash: string, salt: string) {
-	// 	// return await this.db.user.create({ data: { email, hash, salt } })
-	// 	const user = await this.db.user.create({ data: { email, hash, salt } })
-	// 	await this.accountService.create(user.id)
-	// 	return user
-	// }
-
 	async create(email: string, hash: string, salt: string) {
 		const user = await this.db.user.create({ data: { email, hash, salt } })
 		await this.accountService.create(user.id)
