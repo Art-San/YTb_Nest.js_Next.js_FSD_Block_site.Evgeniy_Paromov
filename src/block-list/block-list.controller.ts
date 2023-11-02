@@ -52,7 +52,7 @@ export class BlockListController {
 		type: BlockItemDto,
 	})
 	async removeBlockItem(
-		@Param(ParseIntPipe) id: number, //в Param айди приходит строкой, ParseIntPipe переводит в число
+		@Param('id', ParseIntPipe) id: number, //в Param айди приходит строкой, ParseIntPipe переводит в число
 		@SessionInfo() session: GetSessionInfoDto
 	) {
 		return await this.blockListService.removeItem(session.id, id)
