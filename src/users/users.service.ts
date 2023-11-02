@@ -18,7 +18,7 @@ export class UsersService {
 	async create(email: string, hash: string, salt: string) {
 		const user = await this.db.user.create({ data: { email, hash, salt } })
 		await this.accountService.create(user.id)
-		await this.blockListService.create(user.id)
+		await this.blockListService.create(user.id) // 2:00:45
 
 		return user
 	}

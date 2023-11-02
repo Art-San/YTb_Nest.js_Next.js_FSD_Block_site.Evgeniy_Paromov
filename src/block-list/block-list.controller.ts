@@ -13,6 +13,7 @@ import { ApiOkResponse } from '@nestjs/swagger'
 import { AuthGuard } from 'src/auth/auth.guard'
 import { GetSessionInfoDto } from 'src/auth/dto/auth.dto'
 import { SessionInfo } from 'src/auth/session-info.decorator'
+import { BlockListService } from './block-list.service'
 import {
 	AddBlockItemDto,
 	BlockItemDto,
@@ -23,6 +24,7 @@ import {
 @Controller('block-list')
 @UseGuards(AuthGuard) // теперь внутри методов будут доступны сессии
 export class BlockListController {
+	constructor(private blockListService: BlockListService) {}
 	@Get()
 	@ApiOkResponse({
 		type: BlockListDto, // указывает, что при успешном выполнении запроса к этому методу контроллера будет возвращен объект типа BlockListDto в формате JSON.
@@ -30,7 +32,9 @@ export class BlockListController {
 	getList(
 		@Query() query: BlockListQueryDto,
 		@SessionInfo() session: GetSessionInfoDto
-	) {}
+	): Promise<BlockListDto> {
+		return this.blockListService.getByUser(session.id, query)
+	}
 
 	@Post('item')
 	@ApiOkResponse({
@@ -39,14 +43,18 @@ export class BlockListController {
 	addBlockItem(
 		@Body() body: AddBlockItemDto,
 		@SessionInfo() session: GetSessionInfoDto
-	) {}
+	): Promise<BlockItemDto> {
+		return this.blockListService.addItem(session.id, body)
+	}
 
 	@Delete('item/:id')
-	@ApiOkResponse()
-	removeBlockItem(
-		@Param(ParseIntPipe) id: number,
+	@ApiOkResponse({
+		type: BlockItemDto,
+	})
+	async removeBlockItem(
+		@Param(ParseIntPipe) id: number, //в Param айди приходит строкой, ParseIntPipe переводит в число
 		@SessionInfo() session: GetSessionInfoDto
 	) {
-		//в Param айди приходит строкой, ParseIntPipe переводит в число
+		return await this.blockListService.removeItem(session.id, id)
 	}
 }
