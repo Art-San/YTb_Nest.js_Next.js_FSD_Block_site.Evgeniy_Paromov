@@ -42,7 +42,7 @@ export class BlockListService {
 		const blockList = await this.db.blockList.findUniqueOrThrow({
 			where: { ownerId: userId },
 		})
-
+		// Удаляем только свои blockItem
 		return this.db.blockItem.delete({
 			where: {
 				blockListId: blockList.id,

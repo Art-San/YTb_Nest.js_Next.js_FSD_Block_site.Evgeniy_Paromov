@@ -19,7 +19,7 @@ export class AccountController {
 		return this.accountService.getAccount(session.id)
 	}
 
-	@Patch()
+	@Patch() //Patch что бы можно было частично редактировать
 	@ApiOkResponse({
 		type: AccountDto,
 	})
