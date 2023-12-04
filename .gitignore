@@ -4,6 +4,14 @@
 /dist
 /node_modules
 
+server/dist
+server/node_modules
+
+client/.next/
+client/.pnp
+client/.pnp.js
+client/node_modules
+
 # Logs
 logs
 *.log
