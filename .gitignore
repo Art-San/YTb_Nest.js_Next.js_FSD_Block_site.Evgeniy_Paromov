@@ -7,6 +7,7 @@
 server/dist
 server/node_modules
 
+client
 client/.next/
 client/.pnp
 client/.pnp.js
