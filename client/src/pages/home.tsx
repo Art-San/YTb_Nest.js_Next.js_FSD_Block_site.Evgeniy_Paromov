@@ -6,6 +6,7 @@ import {
 } from '@/shared/api/generated'
 import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
+import { UiButton } from '@/shared/ui/ui-button'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,6 +29,13 @@ export default function HomePage() {
 			className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
 		>
 			{data?.email}
+
+			<UiButton variant="primary">hex</UiButton>
+			<UiButton variant="secondary">hex</UiButton>
+			<UiButton variant="outlined">hex</UiButton>
+			<UiButton disabled variant="primary">
+				Sign Out
+			</UiButton>
 		</main>
 	)
 }
