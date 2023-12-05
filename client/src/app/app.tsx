@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import { AppProvider } from './app-provider'
 import { Inter } from 'next/font/google'
 
+// 3:48:00 Фичи остановился
 const inter = Inter({ subsets: ['latin'] })
 export function App({ Component, pageProps }: AppProps) {
 	return (
