@@ -24,6 +24,6 @@ async function bootstrap() {
 
 	app.use(cookieParser())
 	app.useGlobalPipes(new ValidationPipe()) // глобальный ValidationPipe не надо в контроллерах так писать @UsePipes(new ValidationPipe())
-	await app.listen(3001)
+	await app.listen(3000)
 }
 bootstrap()
