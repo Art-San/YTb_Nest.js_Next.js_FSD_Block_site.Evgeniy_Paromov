@@ -24,7 +24,6 @@ export function useSignInForm() {
 	})
 
 	const errorMessage = signInMutation.error ? 'Sign in faled' : undefined
-
 	return {
 		register,
 		errorMessage,

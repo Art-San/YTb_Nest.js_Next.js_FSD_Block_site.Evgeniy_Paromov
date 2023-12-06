@@ -19,27 +19,21 @@ import { SignOutButton } from '@/features/auth'
 
 export default function HomePage() {
 	// 3:04
-	// useEffect(() => {
-	// 	authControllerSignIn({ email: 'test@email.ru', password: '12345' }).then(
-	// 		console.log
-	// 	)
-	// }, [])
 
-	const { data } = useQuery({
-		// useQuery для get
-		// useMutation для POST PUT Этот хук предоставляет удобный способ отправки запросов на создание, обновление или удаление данных на сервере.
-		// useMutation() НЕ НАШЕЛ isLoading
-		queryKey: ['session'],
-		queryFn: () => authControllerGetSessionInfo(),
-	})
-	console.log('data', data)
+	// useQuery для get
+	// useMutation для POST PUT Этот хук предоставляет удобный способ отправки запросов на создание, обновление или удаление данных на сервере.
+	// useMutation() НЕ НАШЕЛ isLoading
+	// const { data } = useQuery({
+	// 	queryKey: ['session'],
+	// 	queryFn: () => authControllerGetSessionInfo(),
+	// })
 
 	return (
 		<main className={`min-h-screen`}>
 			<UiHeader
 				right={
 					<div>
-						{data?.email} <SignOutButton />
+						<SignOutButton />
 					</div>
 				}
 			/>
