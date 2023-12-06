@@ -13,6 +13,7 @@ import { UiLink } from '@/shared/ui/ui-link'
 import { UiSpinner } from '@/shared/ui/ui-spinner'
 import { UiPageSpinner } from '@/shared/ui/ui-page-spinner'
 import { UiHeader } from '@/shared/ui/ui-header'
+import { SignOutButton } from '@/features/auth'
 
 // const inter = Inter({ subsets: ['latin'] }) // шрифты перенесли app.tsx
 
@@ -35,7 +36,13 @@ export default function HomePage() {
 
 	return (
 		<main className={`min-h-screen`}>
-			<UiHeader right={<div> {data?.email}</div>} />
+			<UiHeader
+				right={
+					<div>
+						{data?.email} <SignOutButton />
+					</div>
+				}
+			/>
 			<UiButton variant="primary">hex</UiButton>
 			<UiButton variant="secondary">hex</UiButton>
 			<UiButton variant="outlined">hex</UiButton>
