@@ -26,6 +26,8 @@ export default function HomePage() {
 
 	const { data } = useQuery({
 		// useQuery для get
+		// useMutation для POST PUT Этот хук предоставляет удобный способ отправки запросов на создание, обновление или удаление данных на сервере.
+		// useMutation() НЕ НАШЕЛ isLoading
 		queryKey: ['session'],
 		queryFn: () => authControllerGetSessionInfo(),
 	})
