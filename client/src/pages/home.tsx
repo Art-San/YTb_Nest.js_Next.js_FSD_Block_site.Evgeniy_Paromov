@@ -34,8 +34,7 @@ export default function HomePage() {
 		<main
 			className={`flex min-h-screen flex-col items-center justify-between p-24`}
 		>
-			{data?.email}
-			<UiHeader />
+			<UiHeader right={<div> {data?.email}</div>} />
 			<UiButton variant="primary">hex</UiButton>
 			<UiButton variant="secondary">hex</UiButton>
 			<UiButton variant="outlined">hex</UiButton>
