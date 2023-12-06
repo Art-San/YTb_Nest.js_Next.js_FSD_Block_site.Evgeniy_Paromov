@@ -25,15 +25,14 @@ export default function HomePage() {
 	// }, [])
 
 	const { data } = useQuery({
+		// useQuery для get
 		queryKey: ['session'],
 		queryFn: () => authControllerGetSessionInfo(),
 	})
 	console.log('data', data)
 
 	return (
-		<main
-			className={`flex min-h-screen flex-col items-center justify-between p-24`}
-		>
+		<main className={`min-h-screen`}>
 			<UiHeader right={<div> {data?.email}</div>} />
 			<UiButton variant="primary">hex</UiButton>
 			<UiButton variant="secondary">hex</UiButton>
