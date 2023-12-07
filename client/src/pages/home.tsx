@@ -14,6 +14,7 @@ import { UiSpinner } from '@/shared/ui/ui-spinner'
 import { UiPageSpinner } from '@/shared/ui/ui-page-spinner'
 import { UiHeader } from '@/shared/ui/ui-header'
 import { SignOutButton } from '@/features/auth'
+import { useSessionQuery } from '@/entities/session/queries'
 
 // const inter = Inter({ subsets: ['latin'] }) // шрифты перенесли app.tsx
 
@@ -28,11 +29,14 @@ export default function HomePage() {
 	// 	queryFn: () => authControllerGetSessionInfo(),
 	// })
 
+	const { data } = useSessionQuery()
+
 	return (
 		<main className={`min-h-screen`}>
 			<UiHeader
 				right={
 					<div>
+						{data?.email}
 						<SignOutButton />
 					</div>
 				}
