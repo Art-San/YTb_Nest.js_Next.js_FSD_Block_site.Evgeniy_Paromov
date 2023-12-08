@@ -1,7 +1,7 @@
 import { UiTextField } from '@/shared/ui/ui-text-field'
 import { useBlockItems } from '../model/use-block-items'
 import { UiSpinner } from '@/shared/ui/ui-spinner'
-// import { BlockItem } from './block-item'
+import { BlockItem } from './block-item'
 
 export function BlockList({ className }: { className?: string }) {
 	const { isLoading, items, q, setQ } = useBlockItems()
@@ -23,8 +23,8 @@ export function BlockList({ className }: { className?: string }) {
 				{isEmptyText && (
 					<div className="text-xl py-1 text-center">List is empty...</div>
 				)}
-				{isItems && items.map((item) => 'jfjfj')}
-				{/* {isItems && items.map((item) => <BlockItem key={item.id} {...item} />)} */}
+
+				{isItems && items.map((item) => <BlockItem key={item.id} {...item} />)}
 			</div>
 		</div>
 	)

@@ -11,8 +11,8 @@ export function useBlockListQuery({ q }: { q?: string }) {
 	return useQuery({
 		queryKey: blockListKey.concat([{ q }]),
 		queryFn: () => blockListControllerGetList({ q }),
-		// placeholderData: (previousData, previousQuery) => previousData,
-		// keepPreviousData: true, // работало в версии 4:35:7
+		placeholderData: (previousData, previousQuery) => previousData, // Решает проблему с отражением лоудера во время ввода в строку поиска значений. Каждый раз когда мы меняем q для react-query это новый запрос.
+		// keepPreviousData: true, // Решает проблему с помощью keepPreviousData, работало в версии 4:35:7
 	})
 }
 

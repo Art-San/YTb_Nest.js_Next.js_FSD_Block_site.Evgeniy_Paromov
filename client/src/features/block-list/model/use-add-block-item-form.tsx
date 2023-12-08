@@ -1,4 +1,4 @@
-import { useAddBlockItemMutation } from '@/entities/block-list/queries'
+import { useAddBlockItemMutation } from '@/entities/block-list'
 import { AddBlockItemDtoType } from '@/shared/api/generated'
 import { useForm } from 'react-hook-form'
 
@@ -8,6 +8,7 @@ export function useAddBlockItemForm() {
 		data: string
 	}>({
 		defaultValues: {
+			// дефолтное значение в форме
 			type: AddBlockItemDtoType.Website,
 		},
 	})
@@ -20,7 +21,7 @@ export function useAddBlockItemForm() {
 		handleSubmit: handleSubmit((data) => {
 			addBlockItemMutation.mutate(data, {
 				onSuccess() {
-					reset()
+					reset() // очистка формы при успехе
 				},
 			})
 		}),
