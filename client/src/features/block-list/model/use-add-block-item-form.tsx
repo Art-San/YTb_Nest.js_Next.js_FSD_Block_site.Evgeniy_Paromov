@@ -8,6 +8,7 @@ export function useAddBlockItemForm() {
 		data: string
 	}>({
 		defaultValues: {
+			// дефолтное значение в форме
 			type: AddBlockItemDtoType.Website,
 		},
 	})
@@ -20,7 +21,7 @@ export function useAddBlockItemForm() {
 		handleSubmit: handleSubmit((data) => {
 			addBlockItemMutation.mutate(data, {
 				onSuccess() {
-					reset()
+					reset() // очистка формы при успехе
 				},
 			})
 		}),
