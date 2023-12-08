@@ -11,27 +11,27 @@ export function useBlockListQuery({ q }: { q?: string }) {
 	return useQuery({
 		queryKey: blockListKey.concat([{ q }]),
 		queryFn: () => blockListControllerGetList({ q }),
-		placeholderData: (previousData, previousQuery) => previousData,
-		// keepPreviousData: true, // работало в 4:35:7
+		// placeholderData: (previousData, previousQuery) => previousData,
+		// keepPreviousData: true, // работало в версии 4:35:7
 	})
 }
 
 export function useAddBlockItemMutation() {
-	const queyrClient = useQueryClient()
+	const queryClient = useQueryClient()
 	return useMutation({
 		mutationFn: blockListControllerAddBlockItem,
 		async onSettled() {
-			await queyrClient.invalidateQueries({ queryKey: blockListKey })
+			await queryClient.invalidateQueries({ queryKey: blockListKey })
 		},
 	})
 }
 
 export function useRemoveBlockItemMutation() {
-	const queyrClient = useQueryClient()
+	const queryClient = useQueryClient()
 	return useMutation({
 		mutationFn: blockListControllerRemoveBlockItem,
 		async onSettled() {
-			await queyrClient.invalidateQueries({ queryKey: blockListKey })
+			await queryClient.invalidateQueries({ queryKey: blockListKey })
 		},
 	})
 }
