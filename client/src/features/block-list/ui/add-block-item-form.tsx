@@ -26,7 +26,7 @@ export function AddBlockItemForm() {
 				inputProps={{
 					placeholder:
 						type === 'KeyWord' ? 'Enter Key Word...' : 'Enter WebSite',
-					...register('data'),
+					...register('data', { required: true }),
 				}}
 			/>
 			<UiButton variant="primary" disabled={isLoading}>
