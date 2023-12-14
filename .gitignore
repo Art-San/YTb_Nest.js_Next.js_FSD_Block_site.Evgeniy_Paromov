@@ -13,6 +13,10 @@ client/.pnp.js
 client/node_modules
 
 
+extension/dist
+extension/node_modules
+
+
 
 # Logs
 logs
