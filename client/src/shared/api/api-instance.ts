@@ -1,9 +1,9 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios'
 
 export const apiInstance = axios.create({
-	baseURL: '/api', // вернули на 3:07:57
-	// baseURL: 'http://localhost:3000', // 3:06:00 вызывает проблему с CORS
-	withCredentials: true,
+	// baseURL: '/api', // выключили на 6:04:31
+	baseURL: 'http://localhost:3000', // на 6:04:31
+	withCredentials: true, // решаем проблемы CORS
 	headers: {
 		'Content-Type': 'application/json',
 	},

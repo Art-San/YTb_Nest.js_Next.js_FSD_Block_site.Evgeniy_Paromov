@@ -23,6 +23,13 @@ async function bootstrap() {
 	SwaggerModule.setup('api', app, document)
 
 	app.use(cookieParser())
+	app.enableCors({
+		origin: [
+			'http://localhost:3001', // разрешаем отсюда делать запросы
+			'chrome-extension://hkhnfcffjgcnpijkbcnhkakdnbekkkea',
+		],
+		credentials: true,
+	})
 	app.useGlobalPipes(new ValidationPipe()) // глобальный ValidationPipe не надо в контроллерах так писать @UsePipes(new ValidationPipe())
 	await app.listen(3000)
 }

@@ -9,6 +9,8 @@ export class CookieService {
 		res.cookie(CookieService.tokenKey, token, {
 			httpOnly: true, // что бы нельзя было достать из JS
 			maxAge: 24 * 60 * 60 * 1000, //То сколько будут жить куки, должно быть синхронизировано с жизнью токена
+			sameSite: 'none', // 6:07:50
+			secure: true, // это для расширения 6:07:50
 		})
 	}
 

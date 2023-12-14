@@ -25,6 +25,7 @@ export const createInstance = async <T>({
 		`${baseURL}${url}` + new URLSearchParams(params),
 		{
 			method: method.toUpperCase(),
+			credentials: 'include', // так хе как на client (withCredentials: true, // решаем проблемы CORS)
 			...(data ? { body: JSON.stringify(data) } : {}),
 		}
 	)
