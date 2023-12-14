@@ -1,5 +1,5 @@
-// import { ADMIN_SING_IN_URL } from '@/shared/constants'
-// import { createTab } from '@/shared/lib/browser'
+import { ADMIN_SING_IN_URL } from '@/shared/constants'
+import { createTab } from '@/shared/lib/browser'
 import { UiButton } from '@/shared/ui/ui-button'
 import { UiLogo } from '@/shared/ui/ui-logo'
 
