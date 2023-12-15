@@ -13,6 +13,7 @@ export const createInstance = async <T>({
 	method,
 	params,
 	data,
+	headers,
 }: {
 	url: string
 	method: 'get' | 'post' | 'put' | 'delete' | 'patch'
@@ -26,6 +27,7 @@ export const createInstance = async <T>({
 		{
 			method: method.toUpperCase(),
 			credentials: 'include', // так хе как на client (withCredentials: true, // решаем проблемы CORS)
+			headers,
 			...(data ? { body: JSON.stringify(data) } : {}),
 		}
 	)
